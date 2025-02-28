@@ -139,6 +139,7 @@
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+			 embeddedservice_bootstrap.settings.hideChatButtonOnLoad = true;
 
 			embeddedservice_bootstrap.init(
 				'00D6g0000023PFK',
@@ -154,7 +155,86 @@
 	};
 </script>
 <script type='text/javascript' src='https://foodja.my.site.com/ESWLiveWebChat1740515562764/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+<div id="chatContainer" style="position: fixed; bottom: 35px; right: 35px; display: flex; align-items: center; flex-direction: column;">
+    <!-- Chat icon -->
+    <div id="chatIcon" style="border-radius: 50%; cursor: pointer;">
+        <img 
+            src="https://th.bing.com/th/id/OIP.Jf5EJOKiddd7TBwuPobOVwHaHa?rs=1&pid=ImgDetMain"
+            style="border-radius: 60%; margin-bottom: 10px;"
+            height="50px"
+            width="50px"
+        />
+    </div>
 
+    <!-- First chat message -->
+    <div id="chatMessage1" style="
+        background-color: white;
+        color: black;
+        padding: 10px 15px;
+        border-radius: 15px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        font-weight: bold;
+        font-size: 12px;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        cursor: pointer;
+        display: none;
+        text-align: center;">
+        Hi, how can I help you?
+    </div>
+
+    <!-- Second chat message -->
+    <div id="chatMessage2" style="
+        background-color: white;
+        color: black;
+        padding: 10px 15px;
+        border-radius: 15px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        font-weight: bold;
+        font-size: 12px;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        cursor: pointer;
+        display: none;
+        margin-top: 5px;
+        text-align: center;">
+        Please click the button to initiate live chat.
+    </div>
+</div>
+
+<script>
+    setTimeout(() => {
+        let chatMessage1 = document.getElementById("chatMessage1");
+        chatMessage1.style.display = "block";
+        chatMessage1.style.opacity = "1";
+        chatMessage1.style.transform = "translateY(0)";
+
+        // Show second message after 2 more seconds
+        setTimeout(() => {
+            let chatMessage2 = document.getElementById("chatMessage2");
+            chatMessage2.style.display = "block";
+            chatMessage2.style.opacity = "1";
+            chatMessage2.style.transform = "translateY(0)";
+        }, 2000);
+    }, 1000);
+
+    // Clicking any chat message or the icon opens the chat
+    document.getElementById("chatContainer").addEventListener("click", function() {
+        launchChat();
+    });
+
+    function launchChat() {
+        embeddedservice_bootstrap.utilAPI.launchChat()
+            .then(() => {
+                console.log('Chat Launched');
+            })
+            .catch(() => {
+                console.log('Error launching chat');
+            });
+    }
+</script>
 
 
 </body>
