@@ -135,67 +135,25 @@
   
 
     <!-- Salesforce Embedded Chat Script -->
- <script type='text/javascript'>
+<script type='text/javascript'>
 	function initEmbeddedMessaging() {
 		try {
-			embeddedservice_bootstrap.settings.language = 'en_US'; // Set language
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
 			embeddedservice_bootstrap.init(
-				'00DcZ000000Cxyp',
-				'LiveChatWeb',
-				'https://foodja--partial.sandbox.my.site.com/ESWLiveChatWeb1736395193708',
+				'00D6g0000023PFK',
+				'LiveWebChat',
+				'https://foodja.my.site.com/ESWLiveWebChat1740515562764',
 				{
-					scrt2URL: 'https://foodja--partial.sandbox.my.salesforce-scrt.com'
+					scrt2URL: 'https://foodja.my.salesforce-scrt.com'
 				}
 			);
-
-			// Function to check if chat button is available
-			function waitForChatButton() {
-				let chatButton = document.querySelector('.embeddedServiceLiveAgentStateChatIcon'); // Check if chat icon exists
-				if (chatButton) {
-					// Stop checking and add text
-					addChatText();
-				} else {
-					// Keep checking every 500ms
-					setTimeout(waitForChatButton, 500);
-				}
-			}
-
-			// Function to add chat instruction text
-			function addChatText() {
-				let chatText = document.createElement("div");
-				chatText.innerText = "Please click here to initiate chat.";
-				chatText.style.position = "fixed";
-				chatText.style.bottom = "90px"; // Adjust position above the chat button
-				chatText.style.right = "20px";
-				chatText.style.background = "white";
-				chatText.style.color = "#333";
-				chatText.style.padding = "8px 12px";
-				chatText.style.borderRadius = "20px";
-				chatText.style.boxShadow = "0 2px 5px rgba(0, 0, 0, 0.2)";
-				chatText.style.fontSize = "14px";
-				chatText.style.whiteSpace = "nowrap";
-				chatText.style.fontWeight = "bold";
-				chatText.style.zIndex = "9999";
-
-				// Append the text to the body
-				document.body.appendChild(chatText);
-			}
-
-			// Start checking for the chat button
-			waitForChatButton();
-
 		} catch (err) {
 			console.error('Error loading Embedded Messaging: ', err);
 		}
 	};
 </script>
-
-<!-- Load Salesforce Embedded Chat -->
-<script type='text/javascript' 
-	src='https://foodja--partial.sandbox.my.site.com/ESWLiveChatWeb1736395193708/assets/js/bootstrap.min.js' 
-	onload='initEmbeddedMessaging()'>
-</script>
+<script type='text/javascript' src='https://foodja.my.site.com/ESWLiveWebChat1740515562764/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
 
 
