@@ -155,17 +155,7 @@
 	};
 </script>
 <script type='text/javascript' src='https://foodja.my.site.com/ESWLiveWebChat1740515562764/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-<div id="chatContainer" style="position: fixed; bottom: 35px; right: 35px; display: flex; align-items: center; flex-direction: column;">
-    <!-- Chat icon -->
-    <div id="chatIcon" style="border-radius: 50%; cursor: pointer;">
-        <img 
-            src="https://th.bing.com/th/id/OIP.Jf5EJOKiddd7TBwuPobOVwHaHa?rs=1&pid=ImgDetMain"
-            style="border-radius: 60%; margin-bottom: 10px;"
-            height="50px"
-            width="50px"
-        />
-    </div>
-
+<div id="chatContainer" style="position: fixed; bottom: 90px; right: 35px; display: flex; align-items: center; flex-direction: column;">
     <!-- First chat message -->
     <div id="chatMessage1" style="
         background-color: white;
@@ -176,12 +166,11 @@
         font-weight: bold;
         font-size: 12px;
         opacity: 0;
-        transform: translateY(10px);
-        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
         cursor: pointer;
         display: none;
-        text-align: center;">
-        Hi, how can I help you?
+        text-align: center;
+        position: relative;">
+        <span id="chatText1">...</span> <!-- Placeholder for typing -->
     </div>
 
     <!-- Second chat message -->
@@ -194,31 +183,49 @@
         font-weight: bold;
         font-size: 12px;
         opacity: 0;
-        transform: translateY(10px);
-        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
         cursor: pointer;
         display: none;
         margin-top: 5px;
         text-align: center;">
-        Please click the button to initiate live chat.
+        <span id="chatText2">...</span> <!-- Placeholder for typing -->
+    </div>
+
+    <!-- Chat icon -->
+    <div id="chatIcon" style="border-radius: 50%; cursor: pointer; margin-top: 10px;">
+        <img 
+            src="https://th.bing.com/th/id/OIP.Jf5EJOKiddd7TBwuPobOVwHaHa?rs=1&pid=ImgDetMain"
+            style="border-radius: 60%;"
+            height="50px"
+            width="50px"
+        />
     </div>
 </div>
 
 <script>
-    setTimeout(() => {
-        let chatMessage1 = document.getElementById("chatMessage1");
-        chatMessage1.style.display = "block";
-        chatMessage1.style.opacity = "1";
-        chatMessage1.style.transform = "translateY(0)";
-
-        // Show second message after 2 more seconds
+    function showTypingEffect(elementId, text, delay, callback) {
+        let element = document.getElementById(elementId);
         setTimeout(() => {
-            let chatMessage2 = document.getElementById("chatMessage2");
-            chatMessage2.style.display = "block";
-            chatMessage2.style.opacity = "1";
-            chatMessage2.style.transform = "translateY(0)";
-        }, 2000);
-    }, 1000);
+            document.getElementById(elementId).parentElement.style.display = "block";
+            document.getElementById(elementId).parentElement.style.opacity = "1";
+            
+            // Show "typing..." first
+            element.innerHTML = "<i>Typing...</i>";
+            
+            // After 2 seconds, replace "typing..." with actual text
+            setTimeout(() => {
+                element.innerHTML = text;
+                if (callback) {
+                    setTimeout(callback, 500); // Wait before showing the next message
+                }
+            }, 2000);
+        }, delay);
+    }
+
+    // First message: show "typing..." then "Hi, how can I help you?"
+    showTypingEffect("chatText1", "Hi, how can I help you?", 1000, function() {
+        // Second message: show "typing..." then "Please click the button to initiate live chat."
+        showTypingEffect("chatText2", "Please click the button to initiate live chat.", 1000);
+    });
 
     // Clicking any chat message or the icon opens the chat
     document.getElementById("chatContainer").addEventListener("click", function() {
