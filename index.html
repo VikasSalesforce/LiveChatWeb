@@ -5,44 +5,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LiveWebChat</title>
     <style>
-        /* Full-page background */
-        body {
-            background-image: url('https://foodja.com/assets/home-best-way-to-order-food-mobile.svg'); /* Update with your image link */
-            background-size: Contain;
-            background-position: center top;
-            background-repeat: no-repeat;
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        /* Main Container for the Section */
+        .panel-2 {
+            background-color: #F4F8FB; /* Light blue background */
+            padding: 60px 20px;
             text-align: center;
         }
 
-        /* Chat icon styling */
+        /* Heading Style */
+        .panel-2 h1 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Paragraph Style */
+        .panel-2 p {
+            font-size: 16px;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.5;
+            color: #444;
+        }
+
+        /* Green Line */
+        .green-line {
+            width: 50px;
+            height: 2px;
+            background-color: #76C043;
+            margin: 15px auto;
+        }
+
+        /* Flex Container for Icons & Text */
+        .benefits {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            margin-top: 30px;
+        }
+
+        /* Each Benefit Item */
+        .benefit {
+            max-width: 250px;
+            text-align: center;
+        }
+
+        /* Icons */
+        .benefit img {
+            width: 80px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        /* Sub-Heading (Bold) */
+        .benefit h5 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        /* Sub-Text */
+        .benefit p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Chat Icon - Positioned Bottom-Right */
         #chat-icon {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background-color: #4CAF50; /* Green background */
+            bottom: 15px;
+            right: 15px;
+            width: 50px;
+            height: 50px;
+            background-color: #4CAF50;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             cursor: pointer;
         }
 
-        /* Chat icon image */
+        /* Chat Icon Image */
         #chat-icon img {
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
         }
     </style>
 </head>
 <body>
+
+    <!-- Why Drive With Foodja Section -->
+    <div class="panel-2">
+        <h1>WHY DRIVE WITH FOODJA?</h1>
+        <p>Foodja is a food delivery platform that connects driver partners with hungry corporate clients and their favorite restaurants.</p>
+        <div class="green-line"></div>
+
+        <!-- Benefits Section -->
+        <div class="benefits">
+            <div class="benefit">
+                <img src="assets/stopwatch.svg" alt="Work When You Want">
+                <h5>WORK WHEN YOU WANT</h5>
+                <p>Be your own boss and set your own work schedule.</p>
+            </div>
+
+            <div class="benefit">
+                <img src="assets/handshake.svg" alt="Support When You Need It">
+                <h5>SUPPORT WHEN YOU NEED IT</h5>
+                <p>Get live, local support to ensure your deliveries run smoothly.</p>
+            </div>
+
+            <div class="benefit">
+                <img src="assets/wallet.svg" alt="Earn More">
+                <h5>EARN MORE</h5>
+                <p>Foodja clients place larger orders than other delivery platforms. This means you can earn more money in less time!</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Chat Button -->
     <div id="chat-icon">
