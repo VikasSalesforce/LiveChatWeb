@@ -4,22 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LiveWebChat</title>
+    <style>
+        /* Full-page background */
+        body {
+            background-image: url('https://foodja.com/assets/home-best-way-to-order-food-mobile.svg'); /* Update with your image link */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Chat icon styling */
+        #chat-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #4CAF50; /* Green background */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        /* Chat icon image */
+        #chat-icon img {
+            width: 40px;
+            height: 40px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to Live Web Chat</h1>
-    <p>Click the chat button below to start chatting with our support team.</p>
 
+    <!-- Chat Button -->
+    <div id="chat-icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="Chat">
+    </div>
+
+    <!-- Salesforce Embedded Chat Script -->
     <script type="text/javascript">
         function initEmbeddedMessaging() {
             try {
-                embeddedservice_bootstrap.settings.language = 'en_US'; // Set language
+                embeddedservice_bootstrap.settings.language = 'en_US';
 
                 embeddedservice_bootstrap.init(
-                    '00DcZ000000Cxyp',  // Your Salesforce Org ID
-                    'WebchatLive',  // Deployment Name
-                    'https://foodja--partial.sandbox.my.site.com/ESWWebchatLive1736400295448', // URL for Embedded Service
+                    '00DcZ000000Cxyp',
+                    'WebchatLive',
+                    'https://foodja--partial.sandbox.my.site.com/ESWWebchatLive1736400295448',
                     {
-                        scrt2URL: 'https://foodja--partial.sandbox.my.salesforce-scrt.com' // Secure URL
+                        scrt2URL: 'https://foodja--partial.sandbox.my.salesforce-scrt.com'
                     }
                 );
             } catch (err) {
@@ -28,9 +69,8 @@
         }
     </script>
 
-    <!-- Load Salesforce Embedded Chat Script -->
     <script type="text/javascript" 
-        src="https://foodja--partial.sandbox.my.site.com/ESWWebchatLive1736400295448/assets/js/bootstrap.min.js" 
+        src="https://foodja--partial.sandbox.my.site.com/ESWWebchatLive1736400295448/assets/js/bootstrap.min.js"
         onload="initEmbeddedMessaging()">
     </script>
 
