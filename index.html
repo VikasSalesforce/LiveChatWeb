@@ -17,6 +17,7 @@
             font-size: 32px;
             font-weight: bold;
             margin-bottom: 10px;
+            color: #111;
         }
 
         /* Paragraph Style */
@@ -37,60 +38,38 @@
         }
 
         /* Flex Container for Icons & Text */
-        .benefits {
+        .image-group-1 {
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             gap: 50px;
             margin-top: 30px;
         }
 
         /* Each Benefit Item */
-        .benefit {
+        .sub-panel {
             max-width: 250px;
             text-align: center;
         }
 
-        /* Icons */
-        .benefit img {
+        /* Image Styling */
+        .image img {
             width: 80px;
             height: auto;
             margin-bottom: 15px;
         }
 
         /* Sub-Heading (Bold) */
-        .benefit h5 {
+        .text h5 {
             font-size: 16px;
             font-weight: bold;
             margin-bottom: 8px;
         }
 
         /* Sub-Text */
-        .benefit p {
+        .text p {
             font-size: 14px;
             color: #666;
-        }
-
-        /* Chat Icon - Positioned Bottom-Right */
-        #chat-icon {
-            position: fixed;
-            bottom: 15px;
-            right: 15px;
-            width: 50px;
-            height: 50px;
-            background-color: #4CAF50;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-        }
-
-        /* Chat Icon Image */
-        #chat-icon img {
-            width: 30px;
-            height: 30px;
         }
     </style>
 </head>
@@ -103,27 +82,37 @@
         <div class="green-line"></div>
 
         <!-- Benefits Section -->
-        <div class="benefits">
-            <div class="benefit">
-                <img src="assets/stopwatch.svg" alt="Work When You Want">
-                <h5>WORK WHEN YOU WANT</h5>
-                <p>Be your own boss and set your own work schedule.</p>
+        <div class="image-group-1">
+            <div class="sub-panel">
+                <div class="image">
+                    <img src="https://foodja.com/assets/stopwatch.svg" alt="Work When You Want">
+                </div>
+                <div class="text">
+                    <h5>WORK WHEN YOU WANT</h5>
+                    <p>Be your own boss and set your own work schedule.</p>
+                </div>
             </div>
 
-            <div class="benefit">
-                <img src="assets/handshake.svg" alt="Support When You Need It">
-                <h5>SUPPORT WHEN YOU NEED IT</h5>
-                <p>Get live, local support to ensure your deliveries run smoothly.</p>
+            <div class="sub-panel">
+                <div class="image">
+                    <img src="https://foodja.com/assets/handshake.svg" alt="Support When You Need It">
+                </div>
+                <div class="text">
+                    <h5>SUPPORT WHEN YOU NEED IT</h5>
+                    <p>Get live, local support to ensure your deliveries run smoothly.</p>
+                </div>
             </div>
 
-            <div class="benefit">
-                <img src="assets/wallet.svg" alt="Earn More">
-                <h5>EARN MORE</h5>
-                <p>Foodja clients place larger orders than other delivery platforms. This means you can earn more money in less time!</p>
+            <div class="sub-panel">
+                <div class="image">
+                    <img src="https://foodja.com/assets/wallet.svg" alt="Earn More">
+                </div>
+                <div class="text">
+                    <h5>EARN MORE</h5>
+                    <p>Foodja clients place larger orders than other delivery platforms. This means you can earn more money in less time!</p>
+                </div>
             </div>
         </div>
-    </div>
-
     <!-- Chat Button -->
     <div id="chat-icon">
         <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="Chat">
