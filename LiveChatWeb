@@ -2,37 +2,160 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <title>LiveWebChat</title>
+    <style>
+          /* Header Styling */
+        .header {
+            background: white;
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Logo Styling */
+        .header img {
+            height: 50px; /* Adjust height as needed */
+        }
+        /* Main Container for the Section */
+        .panel-2 {
+            background-color: #F4F8FB; /* Light blue background */
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        /* Heading Style */
+        .panel-2 h1 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #111;
+        }
+
+        /* Paragraph Style */
+        .panel-2 p {
+            font-size: 16px;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.5;
+            color: #444;
+        }
+
+        /* Green Line */
+        .green-line {
+            width: 50px;
+            height: 2px;
+            background-color: #76C043;
+            margin: 15px auto;
+        }
+
+        /* Flex Container for Icons & Text */
+        .image-group-1 {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 50px;
+            margin-top: 30px;
+        }
+
+        /* Each Benefit Item */
+        .sub-panel {
+            max-width: 250px;
+            text-align: center;
+        }
+
+        /* Image Styling */
+        .image img {
+            width: 80px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        /* Sub-Heading (Bold) */
+        .text h5 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        /* Sub-Text */
+        .text p {
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to Live Web Chat</h1>
-    <p>Click the chat button below to start chatting with our support team.</p>
+    <!-- Header Section -->
+    <div class="header">
+        <img src="https://foodja.com/assets/foodja_logos/foodja-marketing-logo.svg" alt="Foodja Logo">
+    </div>
 
-    <script type="text/javascript">
-        function initEmbeddedMessaging() {
-            try {
-                embeddedservice_bootstrap.settings.language = 'en_US'; // Set language
+    <!-- Why Drive With Foodja Section -->
+    <div class="panel-2">
+        <h1>WHY DRIVE WITH FOODJA?</h1>
+        <p>Foodja is a food delivery platform that connects driver partners with hungry corporate clients and their favorite restaurants.</p>
+        <div class="green-line"></div>
 
-                embeddedservice_bootstrap.init(
-                    '00DcZ000000Cxyp',  // Your Salesforce Org ID
-                    'WebchatLive',  // Deployment Name
-                    'https://foodja--partial.sandbox.my.site.com/ESWWebchatLive1736400295448', // URL for Embedded Service
-                    {
-                        scrt2URL: 'https://foodja--partial.sandbox.my.salesforce-scrt.com' // Secure URL
-                    }
-                );
-            } catch (err) {
-                console.error('Error loading Embedded Messaging: ', err);
-            }
-        }
-    </script>
+        <!-- Benefits Section -->
+        <div class="image-group-1">
+            <div class="sub-panel">
+                <div class="image">
+                    <img src="https://foodja.com/assets/stopwatch.svg" alt="Work When You Want">
+                </div>
+                <div class="text">
+                    <h5>WORK WHEN YOU WANT</h5>
+                    <p>Be your own boss and set your own work schedule.</p>
+                </div>
+            </div>
 
-    <!-- Load Salesforce Embedded Chat Script -->
-    <script type="text/javascript" 
-        src="https://foodja--partial.sandbox.my.site.com/ESWWebchatLive1736400295448/assets/js/bootstrap.min.js" 
-        onload="initEmbeddedMessaging()">
-    </script>
+            <div class="sub-panel">
+                <div class="image">
+                    <img src="https://foodja.com/assets/handshake.svg" alt="Support When You Need It">
+                </div>
+                <div class="text">
+                    <h5>SUPPORT WHEN YOU NEED IT</h5>
+                    <p>Get live, local support to ensure your deliveries run smoothly.</p>
+                </div>
+            </div>
+
+            <div class="sub-panel">
+                <div class="image">
+                    <img src="https://foodja.com/assets/wallet.svg" alt="Earn More">
+                </div>
+                <div class="text">
+                    <h5>EARN MORE</h5>
+                    <p>Foodja clients place larger orders than other delivery platforms. This means you can earn more money in less time!</p>
+                </div>
+            </div>
+        </div>
+    <!-- Chat Button -->
+  
+
+    <!-- Salesforce Embedded Chat Script -->
+<script type='text/javascript'>
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+			embeddedservice_bootstrap.init(
+				'00D6g0000023PFK',
+				'LiveWebChat',
+				'https://foodja.my.site.com/ESWLiveWebChat1740515562764',
+				{
+					scrt2URL: 'https://foodja.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
+</script>
+<script type='text/javascript' src='https://foodja.my.site.com/ESWLiveWebChat1740515562764/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
+
 
 </body>
 </html>
