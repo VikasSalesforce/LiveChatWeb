@@ -85,6 +85,29 @@
             font-size: 14px;
             color: #666;
         }
+	    @media (max-width: 768px) {
+    .image-group-1 {
+        flex-direction: column;  /* ✅ Stack items vertically on mobile */
+        gap: 30px; /* ✅ Add space between items */
+        align-items: center; /* ✅ Center-align for better readability */
+    }
+
+    .sub-panel {
+        max-width: 100%; /* ✅ Allow full width on small screens */
+    }
+
+    .image img {
+        width: 60px; /* ✅ Slightly smaller icons for better spacing */
+    }
+
+    .text h5 {
+        font-size: 14px; /* ✅ Reduce text size slightly for mobile */
+    }
+
+    .text p {
+        font-size: 13px;
+    }
+}
     </style>
 </head>
 <body>
