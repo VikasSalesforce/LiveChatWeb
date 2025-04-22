@@ -172,10 +172,24 @@
 					scrt2URL: 'https://foodja.my.salesforce-scrt.com'
 				}
 			);
-		} catch (err) {
-			console.error('Error loading Embedded Messaging: ', err);
-		}
-	};
+		setTimeout(() => {
+            if (embeddedservice_bootstrap.utilAPI && embeddedservice_bootstrap.utilAPI.launchChat) {
+                embeddedservice_bootstrap.utilAPI.launchChat()
+                    .then(() => {
+                        console.log('Chat launched automatically');
+                    })
+                    .catch((err) => {
+                        console.error('Failed to auto-launch chat:', err);
+                    });
+            } else {
+                console.error("utilAPI not ready yet");
+            }
+        }, 2000); // Slight delay gives it time to fully load
+ 
+    } catch (err) {
+        console.error('Error loading Embedded Messaging: ', err);
+    }
+};
 </script>
 <script type='text/javascript' src='https://foodja.my.site.com/ESWLiveWebChat1740515562764/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 <div id="chatContainer" style="position: fixed; bottom: 90px; right: 35px; display: flex; align-items: center; flex-direction: column;">
