@@ -172,20 +172,31 @@
 					scrt2URL: 'https://foodja.my.salesforce-scrt.com'
 				}
 			);
-		setTimeout(() => {
+		  setTimeout(() => {
             if (embeddedservice_bootstrap.utilAPI && embeddedservice_bootstrap.utilAPI.launchChat) {
-                embeddedservice_bootstrap.utilAPI.launchChat()
-                    .then(() => {
-                        console.log('Chat launched automatically');
-                    })
-                    .catch((err) => {
-                        console.error('Failed to auto-launch chat:', err);
-                    });
-            } else {
-                console.error("utilAPI not ready yet");
-            }
-        }, 2000); // Slight delay gives it time to fully load
- 
+               embeddedservice_bootstrap.utilAPI.launchChat()
+  .then(() => {
+    console.log('Chat launched automatically');
+
+    // 🆕 MutationObserver inserted here
+    const observer = new MutationObserver(() => {
+      const spanElements = document.querySelectorAll('span');
+
+      for (let span of spanElements) {
+        const text = span.textContent?.trim();
+        if (text && text.startsWith('You ended the chat at')) {
+          console.log("✅ Detected system message — trying to minimize chat...");
+          embeddedservice_bootstrap.utilAPI.minimizeChat?.();
+
+          document.querySelector('.embeddedMessagingConversation')?.style.setProperty('display', 'none', 'important');
+          document.querySelector('.embeddedServiceHelpButton')?.style.setProperty('display', 'none', 'important');
+          break;
+        }
+      }
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+  });
     } catch (err) {
         console.error('Error loading Embedded Messaging: ', err);
     }
