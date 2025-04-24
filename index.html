@@ -158,15 +158,15 @@
   
 
     <!-- Salesforce Embedded Chat Script -->
-  <script type='text/javascript'>
+<script type='text/javascript'>
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
 			embeddedservice_bootstrap.init(
 				'00DcZ000000Cxyp',
-				'FoodjaChat',
-				'https://foodja--partial.sandbox.my.site.com/ESWFoodjaChat1745450544636',
+				'Chat',
+				'https://foodja--partial.sandbox.my.site.com/ESWChat1745446170174',
 				{
 					scrt2URL: 'https://foodja--partial.sandbox.my.salesforce-scrt.com'
 				}
@@ -176,7 +176,8 @@
 		}
 	};
 </script>
-<script type='text/javascript' src='https://foodja--partial.sandbox.my.site.com/ESWFoodjaChat1745450544636/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+<script type='text/javascript' src='https://foodja--partial.sandbox.my.site.com/ESWChat1745446170174/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
 <div id="chatContainer" style="position: fixed; bottom: 90px; right: 35px; display: flex; align-items: center; flex-direction: column;">
     <!-- First chat message -->
     <div id="chatMessage1" style="
